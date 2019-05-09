@@ -3,6 +3,7 @@ import { RoomContext } from "../Context";
 
 import Room from "./Room";
 import Title from "./Title";
+import Loading from "./Loading";
 
 export default class FeaturedRooms extends Component {
   static contextType = RoomContext;
@@ -18,7 +19,7 @@ export default class FeaturedRooms extends Component {
       <section className="featured-rooms">
         <Title title="featured rooms" />
         <div className="featured-rooms-center">
-          {loading ? "loading" : fRooms}
+          {loading ? <Loading /> : fRooms}
         </div>
       </section>
     );

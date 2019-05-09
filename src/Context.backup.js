@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import items from "./data";
-//import Client from "./Contentful";
 
-//Testing Contentful working or not
-//Client.getEntries().then(response => console.log(response.items));
+import items from "./data";
+import { all } from "q";
 
 const RoomContext = React.createContext();
 
@@ -25,8 +23,6 @@ class RoomProvider extends Component {
   };
 
   componentDidMount() {
-    console.log("Devloper Name : ", process.env.REACT_APP_API_DEVUSER);
-
     let rooms = this.formatData(items);
     console.log("RoomProvider => componentDidMount", rooms);
     let featuredRoom = rooms.filter(room => room.featured === true);
